@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mask Detection</title>
+</head>
+<body>
+    <h1>Mask Detection</h1>
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+        <label for="file">Upload an image:</label>
+        <input type="file" name="file" id="file" required>
+        <button type="submit">Detect Mask</button>
+    </form>
+    
+    {% if prediction %}
+        <h3>Prediction: {{ prediction }}</h3>
+        <img src="data:image/jpeg;base64,{{ img_base64 }}" alt="Detected Image">
+    {% endif %}
+</body>
+</html>
